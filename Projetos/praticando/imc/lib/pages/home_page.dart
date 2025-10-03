@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imc/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(("Calculadora de IMC"))),
+      appBar: AppBar(centerTitle: true, title: Text(("Calculadora de IMC"))),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -83,6 +84,18 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
+              ),
+
+              SizedBox(height: 50),
+
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                child: Text("Clique"),
               ),
             ],
           ),
