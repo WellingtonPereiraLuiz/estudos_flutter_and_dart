@@ -26,12 +26,6 @@ O conteúdo está dividido em níveis de complexidade, seguindo uma trilha de ap
 - `03_avancado/`: Streams, async/await, generics.
 - `04_pratica/`: Exercícios práticos para fixar os conceitos.
 
-🟩 **Projetos/**
-- `01_basico/`: Pequenos apps usando Flutter e Dart.
-- `02_intermediario/`: Apps com funcionalidades intermediárias.
-- `03_avancado/`: Projetos mais completos e robustos.
-- `04_pratica/`: Experimentos, provas de conceito e desafios.
-
 ---
 
 ## 📚 Tópicos de Estudo
