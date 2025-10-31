@@ -25,7 +25,7 @@ void main() {
 
   String? talvezUmNome;
   talvezUmNome = "Ana"; // Demos um valor a ela.
-  print(talvezUmNome!); // Confiamos que não é nulo, e estamos certos.
+  print(talvezUmNome); // Confiamos que não é nulo, e estamos certos.
 
   // O código abaixo irá causar um erro e quebrar o programa!
   // String? nomeQueEstaNulo;
