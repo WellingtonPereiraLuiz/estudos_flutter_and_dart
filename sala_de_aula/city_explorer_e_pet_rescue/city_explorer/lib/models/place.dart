@@ -5,11 +5,13 @@ class Place {
   final String coverUrl; // para Image.network
   final String description;
   final String localAssetMap; // ex.: 'assets/images/map.png'
+  bool isFavorite;
 
-  const Place({
+  Place({
     required this.title,
     required this.coverUrl,
     required this.description,
     required this.localAssetMap,
+    this.isFavorite = false,
   });
 }

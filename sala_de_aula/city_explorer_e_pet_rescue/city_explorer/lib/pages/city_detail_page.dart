@@ -10,11 +10,25 @@ class CityDetailPage extends StatefulWidget {
 }
 
 class _CityDetailPageState extends State<CityDetailPage> {
-  // ETAPA 8: Estado (R2) 
-  bool isFavorite = false;
+  // ETAPA 8: Estado (R2)
+  late bool isFavorite;
   int visitCount = 0;
+  late final Place place;
 
-  void _toggleFavorite() {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // ETAPA 7: Receber o argumento (R1)
+    // Fazemos isso aqui para que 'place' esteja disponível para o initState (se precisasse)
+    // e para inicializar nosso estado local
+    place = ModalRoute.of(context)!.settings.arguments as Place;
+
+    // ETAPA 8: Inicializa o estado local COM BASE no argumento
+    isFavorite = place
+        .isFavorite; // Assumindo que você adicionou 'bool favorite' ao seu modelo Place
+  }
+
+  void toggleFavorite() {
     setState(() {
       isFavorite = !isFavorite;
     });
@@ -28,20 +42,24 @@ class _CityDetailPageState extends State<CityDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    // ETAPA 7: Receber o argumento (R1) [cite: 196-197]
-    final place = ModalRoute.of(context)!.settings.arguments as Place;
-
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context, isFavorite);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
+
         title: Text(place.title),
         actions: [
-          // (R2) Botão de Favorito com setState 
+          // (R2) Botão de Favorito com setState
           IconButton(
             icon: Icon(
               isFavorite ? Icons.favorite : Icons.favorite_border,
               color: isFavorite ? Colors.red : Colors.white,
             ),
-            onPressed: _toggleFavorite, // Chama o setState
+            onPressed: toggleFavorite, // Chama o setState
           ),
         ],
       ),
@@ -50,11 +68,7 @@ class _CityDetailPageState extends State<CityDetailPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Imagem de capa
-            Image.network(
-              place.coverUrl,
-              height: 250,
-              fit: BoxFit.cover,
-            ),
+            Image.network(place.coverUrl, height: 250, fit: BoxFit.cover),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -62,7 +76,10 @@ class _CityDetailPageState extends State<CityDetailPage> {
                 children: [
                   Text(
                     'Descrição',
-                    style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.poppins(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -100,19 +117,22 @@ class _CityDetailPageState extends State<CityDetailPage> {
                   const SizedBox(height: 24),
                   Text(
                     'Localização (Mapa Fictício)',
-                    style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.poppins(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 8),
-                  
+
                   // (R5) Imagem de Asset [cite: 158]
                   Image.asset(
                     place.localAssetMap, // [cite: 171]
                     height: 200,
                     fit: BoxFit.cover,
                   ),
-                  
+
                   const SizedBox(height: 20),
-                  // (R7) Botão de Ação [cite: 160]
+                  // (R7) Botão de Ação [cite: '160]
                   ElevatedButton(
                     onPressed: () {
                       // DESAFIO: Implementar o url_launcher aqui [cite: 160, 230-236]
