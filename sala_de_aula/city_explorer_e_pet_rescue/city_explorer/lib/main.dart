@@ -1,7 +1,6 @@
-import 'package:city_explorer/pages/city_detail_page.dart';
-import 'package:city_explorer/pages/city_home_page.dart';
+// lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:city_explorer/pages/city_favorites_page.dart';
+import 'routes/app_routes.dart'; // 1. Importa sua classe de rotas
 
 void main() => runApp(const MyApp());
 
@@ -21,12 +20,13 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (_) => const CityHomePage(),
-        '/detail': (_) => const CityDetailPage(),
-        '/favorites': (_) => const CityFavoritesPage(),
-      },
+
+      // 2. Define a rota inicial
+      initialRoute: AppRoutes.home,
+
+      // 3. USA O 'onGenerateRoute'
+      // Aponta para o método estático da sua classe
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }
