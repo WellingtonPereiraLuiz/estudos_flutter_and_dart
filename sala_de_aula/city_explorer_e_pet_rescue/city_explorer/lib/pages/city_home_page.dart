@@ -11,7 +11,6 @@ class CityHomePage extends StatefulWidget {
 }
 
 class _CityHomePageState extends State<CityHomePage> {
-  // ETAPA 1: Nossos dados fictícios
   final List<Place> places = [
     Place(
       title: 'Prefeitura de Ariquemes',
@@ -31,29 +30,21 @@ class _CityHomePageState extends State<CityHomePage> {
     ),
   ];
 
-  // Função que lida com a navegação e a atualização do estado
   void _navigateToDetail(Place place) async {
-    // ETAPA 3: Espera o resultado da DetailPage
-    // O 'result' será o 'isFavorite' que a DetailPage nos enviar
     final bool? newFavoriteState = await Navigator.pushNamed(
       context,
       '/detail',
       arguments: place,
     );
-
-    // ETAPA 4: Sincroniza o estado
     if (newFavoriteState != null) {
       setState(() {
-        // Encontra o 'place' na nossa lista e atualiza o 'isFavorite'
         place.isFavorite = newFavoriteState;
       });
     }
   }
 
   void _navigateToFavorites() {
-    // Filtra a lista de 'places' e envia apenas os favoritos
     final favoritedPlaces = places.where((p) => p.isFavorite).toList();
-
     Navigator.pushNamed(context, '/favorites', arguments: favoritedPlaces);
   }
 
@@ -61,7 +52,6 @@ class _CityHomePageState extends State<CityHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // ETAPA 6 (Requisito R6): Título animado [cite: 159, 214-228]
         title: AnimatedTextKit(
           animatedTexts: [
             TypewriterAnimatedText(
@@ -79,16 +69,13 @@ class _CityHomePageState extends State<CityHomePage> {
           ),
         ],
       ),
-      // ETAPA 2 (Requisito R4): Layout de scroll [cite: 157]
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Mapeia a lista de dados para uma lista de Widgets
               ...places.map((place) {
-                // Vamos criar um Card para cada 'place'
                 return buildPlaceCard(context, place);
               }).toList(),
             ],
@@ -97,15 +84,9 @@ class _CityHomePageState extends State<CityHomePage> {
       ),
     );
   }
-
-  // ETAPA 3: O Card (UI)
-  // (R1) Requisito de navegação
-  // (R4) Requisito de Layout [cite: 157]
   Widget buildPlaceCard(BuildContext context, Place place) {
     return GestureDetector(
-      // (R3) GestureDetector será usado aqui [cite: 156]
       onTap: () {
-        // ETAPA 2: Chama a nova função async
         _navigateToDetail(place);
       },
       child: Container(
@@ -117,19 +98,14 @@ class _CityHomePageState extends State<CityHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // ETAPA 5: Imagem de Rede (R5) e Shimmer (R6)
-            // Aqui você deve implementar o Shimmer [cite: 159, 199-210]
-            // Por enquanto, vamos usar só a imagem:
             ClipRRect(
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(12),
               ),
               child: Image.network(
-                place.coverUrl, // (R5) Image.network [cite: 158]
+                place.coverUrl,
                 height: 200,
                 fit: BoxFit.cover,
-                // (Opcional) Adicione o 'loadingBuilder' ou o 'Shimmer' aqui
-                // O Shimmer  deve ser o placeholder
               ),
             ),
             Padding(
@@ -140,7 +116,6 @@ class _CityHomePageState extends State<CityHomePage> {
                   Text(
                     place.title,
                     style: GoogleFonts.poppins(
-                      // (R6) google_fonts [cite: 159]
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),

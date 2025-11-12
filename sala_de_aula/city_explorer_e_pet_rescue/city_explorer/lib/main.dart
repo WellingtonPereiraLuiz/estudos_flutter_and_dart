@@ -1,6 +1,6 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
-import 'routes/app_routes.dart'; // 1. Importa sua classe de rotas
+import 'routes/app_routes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,11 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      // 2. Define a rota inicial
       initialRoute: AppRoutes.home,
-
-      // 3. USA O 'onGenerateRoute'
-      // Aponta para o método estático da sua classe
       onGenerateRoute: AppRoutes.generateRoute,
     );
   }

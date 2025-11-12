@@ -11,67 +11,61 @@ class CityFavoritesPage extends StatefulWidget {
 }
 
 class _CityFavoritesPageState extends State<CityFavoritesPage> {
- 
-  // Função que lida com a navegação e a atualização do estado
+  List<Place> myFavoritesList = [];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (myFavoritesList.isEmpty) {
+      final args = ModalRoute.of(context)?.settings.arguments as List<Place>?;
+      if (args != null) {
+        myFavoritesList = List.from(args);
+      }
+    }
+  }
+
   void _navigateToDetail(Place place) async {
-    // ETAPA 3: Espera o resultado da DetailPage
-    // O 'result' será o 'isFavorite' que a DetailPage nos enviar
-    final bool? newFavoriteState = await Navigator.pushNamed(
+    final bool? isFavoriteResult = await Navigator.pushNamed(
       context,
       '/detail',
       arguments: place,
     );
- 
- 
- 
-  @override
-  Widget buildplaceCard(BuildContext context, Place place) {
-    // 1. Recebe a lista de favoritos que a HomePage enviou
-    final favoritedPlaces =
-        ModalRoute.of(context)!.settings.arguments as List<Place>;
+    if (isFavoriteResult == false) {
+      setState(() {
+        myFavoritesList.remove(place);
+      });
+    }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Meus Favoritos')),
       body: ListView.builder(
-        itemCount: favoritedPlaces.length,
+        itemCount: myFavoritesList.length,
         itemBuilder: (context, index) {
-          final place = favoritedPlaces[index];
-          // Reutilize o visual do card (ou faça um mais simples)
-          return GestureDetector(
-            onTap: () {
- _navigateToDetail(place);
-            },
-            child: 
-          )
+          final place = myFavoritesList[index];
+          return buildPlaceCard(context, place);
         },
       ),
     );
   }
-
-
-
-
-
-
-
-
-
   Widget buildPlaceCard(BuildContext context, Place place) {
     return GestureDetector(
-      // (R3) GestureDetector será usado aqui [cite: 156]
       onTap: () {
-        // ETAPA 2: Chama a nova função async
         _navigateToDetail(place);
       },
       child: ListTile(
-            leading: Icon(Icons.favorite, color: Colors.red),
-            title: Text(place.title, style: GoogleFonts.poppins()),
-            subtitle: Text(
-              place.description,
-              style: GoogleFonts.lato(),
-              maxLines: 1,
-            ),
-          )  
+        leading: const Icon(Icons.favorite, color: Colors.red),
+        title: Text(place.title, style: GoogleFonts.poppins()),
+        subtitle: Text(
+          place.description,
+          style: GoogleFonts.lato(),
+          maxLines: 1,
+          overflow:
+              TextOverflow.ellipsis, 
+        ),
+      ),
     );
   }
 }

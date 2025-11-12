@@ -1,10 +1,9 @@
-// lib/models/place.dart
-//
+
 class Place {
   final String title;
-  final String coverUrl; // para Image.network
+  final String coverUrl; 
   final String description;
-  final String localAssetMap; // ex.: 'assets/images/map.png'
+  final String localAssetMap;
   bool isFavorite;
 
   Place({
