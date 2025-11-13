@@ -1,4 +1,4 @@
-# Repositório de Estudos em Flutter e Dart 🦋
+# Repositório de Estudos: Flutter & Dart 🦋
 
 Olá! 👋 Este repositório é meu laboratório pessoal e registro público da minha jornada de aprendizado com **Flutter** e **Dart**, indo dos conceitos fundamentais até tópicos mais avançados e projetos práticos.
 
@@ -6,46 +6,41 @@ Aqui você encontrará códigos, anotações e pequenas telas/projetos que desen
 
 ---
 
-## 🎯 Objetivo
-Construir uma base sólida em Flutter e Dart, entender seus paradigmas (como Programação Orientada a Objetos, widgets e arquitetura) e ser capaz de aplicar o aprendizado na criação de aplicativos reais e eficientes.
+## 📂 Estrutura do Projeto
+
+A organização reflete a natureza de cada tecnologia: **Dart** segue uma trilha linear de complexidade lógica, enquanto **Flutter** é organizado por escopo e contexto de projeto.
+
+### 🟨 Dart (A Linguagem)
+*Fundamentos, lógica e algoritmos.*
+
+- **`01_basico/`**: A base. Tipagem, entrada/saída de dados e estruturas de controle (`if`, `switch`, loops).
+- **`02_intermediario/`**: Refinamento do código. Tratamento de nulos (`Null Safety`), funções e coleções.
+- **`03_avancado/`**: Concorrência e Assincronismo. Manipulação de `Future` e `async/await`.
+- **`04_POO/`**: Orientação a Objetos. Classes, herança, polimorfismo e encapsulamento.
+
+### 🟦 Flutter (O Framework)
+*Construção de interfaces e aplicativos.*
+
+- **`conceitos_especificos/`**: 🧪 **Laboratório.** Projetos pequenos e isolados focados em dominar um único conceito ou widget (ex: Dialogs, Navegação, Animações).
+- **`projetos_de_aula/`**: 🎓 **Acadêmico.** Aplicações e atividades desenvolvidas durante o curso de ADS no IFRO (ex: *City Explorer*, *Pet Rescue*).
+- **`projetos_pessoais/`**: 🚀 **Portfólio.** Aplicações completas e integradas, desenvolvidas por iniciativa própria.
 
 ---
 
-## 📂 Estrutura do Repositório
-O conteúdo está dividido em níveis de complexidade, seguindo uma trilha de aprendizado lógico:
-
-🟦 **Flutter/**
-- `01_basico/`: Fundamentos do Flutter (widgets básicos, layouts, navegação simples).
-- `02_intermediario/`: Estados, gerência de estado, widgets customizados.
-- `03_avancado/`: Animações, arquiteturas avançadas (BLoC, Riverpod), integração com APIs.
-- `04_pratica/`: Telas, desafios e miniapps para praticar.
-
-🟨 **Dart/**
-- `01_basico/`: Sintaxe, variáveis, tipos de dados, operadores, estruturas de controle.
-- `02_intermediario/`: Funções, orientação a objetos, coleções.
-- `03_avancado/`: Streams, async/await, generics.
-- `04_pratica/`: Exercícios práticos para fixar os conceitos.
+## 🛠️ Tópicos de Estudo
+O foco deste repositório é cobrir:
+- **Dart:** Sintaxe moderna, Null Safety, POO e Assincronismo.
+- **Flutter UI:** Widgets fundamentais, Layouts responsivos e Material Design.
+- **Lógica:** Gerência de estado, Navegação entre telas e Integração com APIs.
 
 ---
 
-## 📚 Tópicos de Estudo
-Meus estudos aqui cobrem (ou irão cobrir):
+## 📬 Contato
 
-- Sintaxe básica do Dart.
-- Widgets fundamentais do Flutter.
-- Gerência de estado.
-- Programação Orientada a Objetos (POO).
-- Integração com APIs e bancos de dados.
-- Testes unitários.
-- Animações e performance.
-- Publicação de aplicativos.
+**Wellington Pereira Luiz**
 
----
-
-## 🔗 Conecte-se Comigo
 Estou sempre aberto a dicas, sugestões e conexões com outros devs.  
 Sinta-se à vontade para entrar em contato!
 
-[LinkedIn](https://www.linkedin.com/in/wellington-pereira-luiz/)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wellington-pereira-luiz/)  
 📧 wellingtonpereiraluiz89@gmail.com
-
