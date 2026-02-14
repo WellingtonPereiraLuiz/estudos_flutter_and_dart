@@ -13,17 +13,19 @@ A organização reflete a natureza de cada tecnologia: **Dart** segue uma trilha
 ### 🟨 Dart (A Linguagem)
 *Fundamentos, lógica e algoritmos.*
 
-- **`01_basico/`**: A base. Tipagem, entrada/saída de dados e estruturas de controle (`if`, `switch`, loops).
-- **`02_intermediario/`**: Refinamento do código. Tratamento de nulos (`Null Safety`), funções e coleções.
-- **`03_avancado/`**: Concorrência e Assincronismo. Manipulação de `Future` e `async/await`.
+- **`01_fundamentos/`**: A base. Tipagem, entrada/saída de dados.
+- **`02_controle_fluxo/`**: Estruturas condicionais (`if`, `switch`) e loops (`for`, `while`).
+- **`03_colecoes_e_funcoes/`**: Manipulação de Listas, Maps e modularização de código.
 - **`04_POO/`**: Orientação a Objetos. Classes, herança, polimorfismo e encapsulamento.
+- **`05_assincronismo/`**: Concorrência. Manipulação de `Future` e `async/await`.
+- **`06_topicos_avancados/`**: Refinamentos da linguagem e features modernas.
 
 ### 🟦 Flutter (O Framework)
 *Construção de interfaces e aplicativos.*
 
 - **`conceitos_especificos/`**: 🧪 **Laboratório.** Projetos pequenos e isolados focados em dominar um único conceito ou widget (ex: Dialogs, Navegação, Animações).
 - **`projetos_de_aula/`**: 🎓 **Acadêmico.** Aplicações e atividades desenvolvidas durante o curso de ADS no IFRO (ex: *City Explorer*, *Pet Rescue*).
-- **`projetos_pessoais/`**: 🚀 **Portfólio.** Aplicações completas e integradas, desenvolvidas por iniciativa própria.
+- **`projetos_pessoais/`** (🚧 Em breve): 🚀 **Portfólio.** Aplicações completas e integradas, desenvolvidas por iniciativa própria.
 
 ---
 
@@ -39,8 +41,8 @@ O foco deste repositório é cobrir:
 
 **Wellington Pereira Luiz**
 
-Estou sempre aberto a dicas, sugestões e conexões com outros devs.  
+Estou sempre aberto a dicas, sugestões e conexões com outros devs. 
 Sinta-se à vontade para entrar em contato!
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wellington-pereira-luiz/)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wellington-pereira-luiz/) 
 📧 wellingtonpereiraluiz89@gmail.com
